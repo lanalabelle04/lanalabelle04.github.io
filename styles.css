@@ -1,0 +1,45 @@
+p {
+    color: #EE4835;
+    font-size: 16px;
+}
+
+a { 
+    text-decoration: none;
+    color: #EE4835
+}
+
+.top-line{
+    color: #EE4835;
+    font-size: 16px;
+    text-decoration: none;
+
+}
+
+h1 {
+    color: #EE4835;
+    font-size: 300px;
+    margin: unset;
+}
+
+h2 {
+    color: #FFFFFF;
+    font-size: 20px;
+    background-color: #EE4835; 
+    border-radius: 100px;
+    text-align: center; 
+    display: inline-block;
+    padding: 10px 20px; 
+}
+
+#year{
+    background-color: #EE4835; 
+    color: #FFFFFF;
+    padding: 10px 14px; 
+}
+
+#traits{
+    background-color: #ffffff; 
+    color: #EE4835;
+    padding: 10px 14px; 
+    border: 2px solid #EE4835;
+}
