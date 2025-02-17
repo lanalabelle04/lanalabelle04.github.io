@@ -6,13 +6,28 @@ p {
 
 a { 
     text-decoration: none;
-    color: #EE4835
+    font-family: "inter";
+    color: #EE4835;
+    font-size: 16px;
 }
 
 .top-line{
     color: #EE4835;
     font-size: 16px;
     text-decoration: none;
+}
+
+.header-container {
+    width: 1167px; 
+    margin: 0 auto; 
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1167px;
+    margin: 0 auto;
 }
 
 h1 {
@@ -30,6 +45,7 @@ h2 {
     text-align: center; 
     display: inline-block;
     padding: 10px 20px; 
+    font-family: "roboto mono";
 }
 
 #year{
@@ -43,4 +59,15 @@ h2 {
     color: #EE4835;
     padding: 10px 14px; 
     border: 2px solid #EE4835;
+}
+
+hr {
+    border: 1.5px solid #EE4835; 
+  }
+  
+.special-links a {
+    text-decoration: none;
+    font-family: "roboto mono";
+    color: #EE4835;
+    font-size: 35px;
 }
