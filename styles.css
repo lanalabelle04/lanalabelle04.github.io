@@ -1,6 +1,7 @@
 p {
     color: #EE4835;
     font-size: 16px;
+    font-family: "inter";
 }
 
 a { 
@@ -12,13 +13,13 @@ a {
     color: #EE4835;
     font-size: 16px;
     text-decoration: none;
-
 }
 
 h1 {
     color: #EE4835;
     font-size: 300px;
     margin: unset;
+    font-family: "ultra";
 }
 
 h2 {
