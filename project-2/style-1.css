@@ -3,7 +3,9 @@
 .container {
     background: whitesmoke;
     position: relative;
-    width: 520px;    
+    width: 520px;
+    border: solid white 1px;
+    
 
   /* METHOD 1: CONTENT-BOX SIZING */
   /* I want my height to be a total of 700px, but there's a 20px padding all around, so I'm giving it a height of 660px (700 - 20 - 20) */
