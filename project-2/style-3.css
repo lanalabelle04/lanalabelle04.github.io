@@ -1,1 +1,40 @@
 /* Version 3: Ugly */
+
+.seating-image {
+    width: 40%;
+    transform: rotateX(70%);}
+
+.sub-heading p {
+    color: rgb(106, 182, 0);
+    font-size: 10vw;
+    font-family: Impact;
+}
+
+.green-text {
+    color: rgb(60, 141, 143);
+    font-family: fantasy;
+    font-size: 11.36vw;
+    text-shadow: 
+        0 0 10px red, 
+        0 0 20px orange, 
+        0 0 30px yellow, 
+        0 0 40px green, 
+        0 0 50px blue, 
+        0 0 60px indigo, 
+        0 0 70px violet;
+}
+
+.container {
+    background-color: rgb(255, 244, 83);
+}
+
+.rectangle p {
+    color: rgb(255, 160, 215);
+    font-size: 1.6vw;
+    font-family: cursive;
+}
+
+.circle {
+    color: #ff0909;
+    font-size: 100vw;
+  }
