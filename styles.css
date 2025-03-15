@@ -1,6 +1,101 @@
 
-
 .projects {
     display: flex;
     flex-direction: row;
+}
+
+p {
+    font-size: 12px;
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #47562F;
+}
+
+a {
+    font-size: 12px;
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    color: #4A4A4A;
+}
+
+.title {
+    position: absolute;
+    left: 687px;
+    top: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px; 
+}
+
+.title p {
+    margin: 0; 
+}
+
+.project-dropdown {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+    display: flex;
+    cursor: pointer;
+    background-color: #F4E9E2;
+    border-radius: 100px;
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.32);  
+    height: 32px;
+    width: 65px;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    z-index: 1000; 
+}
+
+.project-titles {
+    display: none; 
+    user-select: none;
+    position: absolute;
+    top: 58px;
+    left: 21px;
+    z-index: 1000; 
+}
+
+.project-titles.visible {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: white; 
+    padding: 10px; 
+    border-radius: 8px; 
+}
+
+.project-titles a {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001; 
+}
+
+.project-titles a:hover{
+    color:#c07c75;
+}
+
+.project-dropdown:hover {
+    background-color: #E3D3C8;
+}
+
+.spline{
+    position: absolute;
+    top: 50px;
+    left: 22px;
+}
+
+.project-dropdown.active {
+    background-color: #F9B7AF;
+    box-shadow: inset 1px 4px 4px rgba(0, 0, 0, 0.32); 
 }

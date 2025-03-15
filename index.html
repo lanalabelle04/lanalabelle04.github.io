@@ -4,23 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.77/build/spline-viewer.js"></script>
-    <title>Lana's Class Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>lana's class website</title>
 </head>
 <body>
 
-    <h3>Projects from this semmy</h3>
-
-<div class="projects">
-    <a href="project-1/index.html">Book</a>
-    <a href="project-2/index.html">Poster</a>
+<div class="project-dropdown">
+    <p>projects</p>
 </div>
-    
-    <div style="position: relative;">
+
+<div style="position: relative;">
+    <div class="project-titles">
+        <div><a href="project-1/index.html">book</a></div>
+        <div><a href="project-2/index.html">poster</a></div>
+        <div><a>coming soon...</a></div>
+        <div><a>coming soon...</a></div>
+    </div>
+</div>
+
+<div style="display: none;"></div>
+ 
+<div class="title">
+    <div><p>lana labelle</p></div>
+    <div><p>adpd spring 2025</p></div>
+</div>
+
+    <div class="spline" style="position: relative;">
         <div style="width: 137px; height: 36px; background: white; position:absolute; bottom: 20px; right: 20px; z-index: 50;"> </div>
         <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.77/build/spline-viewer.js"></script>
         <spline-viewer url="https://prod.spline.design/mqpv-cV6Nk72lXaz/scene.splinecode"></spline-viewer>
     </div>
 
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const projectDropdown = document.querySelector('.project-dropdown');
+    const projectTitles = document.querySelector('.project-titles');
+    
+    projectDropdown.addEventListener('click', function() {
+        projectTitles.classList.toggle('visible');
+        projectDropdown.classList.toggle('active'); 
+    });
+});
+    </script>
 
 </body>
 </html>
