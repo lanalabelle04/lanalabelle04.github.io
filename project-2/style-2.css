@@ -1,3 +1,5 @@
+/* Version 2: Viewport */
+
 body, html {
     margin: 0;
     padding: 0;
@@ -109,10 +111,8 @@ body, html {
 }
 
 .rectangle-1 {
-    background-color: #FFEE81; 
+    background-color: #FFEE7A; 
 }
-
-
 
 .rectangle-2 {
     background-color: #E75C58; 
@@ -130,7 +130,7 @@ body, html {
     width: 12vw;
     height: 12vw;
   }
-
+  
   .circle {
     position: absolute;
     width: 3.5vw;
@@ -147,25 +147,25 @@ body, html {
     font-style: normal;
     font-size: 2.2vw;
   }
-
+  
   .circle-1 {
     top: -.3vw;
     right: 7.4vw;
     z-index: 20;
   }
-
+  
   .circle-2 {
     top: -1.5vw;
     right: 4.6vw;
     z-index: 21;
   }
-
+  
   .circle-3 {
     top: -.3vw;
     right: 1.8vw;
     z-index: 22;
   }
-
+  
   .circle-4 {
     top: -1.5vw;
     right: -1vw;
@@ -188,46 +188,3 @@ body, html {
     display: block;
     object-position: 0% 63%; 
 }
-  
-.rectangle-container a.rectangle {
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Hover effects for rectangle-1 */
-.rectangle-1:hover {
-    background-color: #FFE058; /* Change to green on hover */
-}
-
-.rectangle-2:hover {
-    background-color: #DE4641; /* Change to green on hover, same as rectangle-1 */
-}
-
-.rectangle-2:hover p {
-    color: white; /* Change text color to white on hover */
-}
-
-.rectangle-3:hover {
-    background-color: #0074D9; /* Change to green on hover, same as other rectangles */
-}
-
-.rectangle-3:hover p {
-    color: white; /* Change text color to white on hover */
-}
-
-.rectangle .arrow {
-    position: absolute;
-    right: 35px; /* Adjust the position as needed */
-    font-size: 2vw; /* Adjust size accordingly */
-    font-weight: 400;
-    color: white; /* Initial color */
-    transition: transform 0.2s ease; /* Transition for smooth rotation */
-}
-
-.rectangle:hover .arrow {
-    transform: rotate(-45deg); 
-}
-
-
-

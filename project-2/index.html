@@ -14,10 +14,11 @@
     </div>
 
     <div class="seating-image-container">
-        <img src="seating.jpg" alt="Seating area" class="seating-image" id="cycling-image">
+        <img src="seating.jpg" alt="Seating area" class="seating-image">
     </div>
-
+    
     <div class="blue-rectangle">
+    
         <div class="sub-heading">
             <p>All locations</p>
             <p>11:00 AM - 6:00 PM</p>
@@ -26,21 +27,19 @@
     </div>
 
     <div class="rectangle-container">
-        <!-- Changed from div to anchor tag -->
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Smorgasburg+WTC,+185+Greenwich+St,+New+York,+NY+10006" class="rectangle rectangle-1" target="_blank">
+
+        <div class="rectangle rectangle-1">
             <p style="color: black;">FRI: WORLD TRADE CENTER <span style="font-size: 1.2vw;">(The Oculus, Fulton St + Church St., Manhattan)</span></p>
-            <span class="arrow" style="color: black;">></span>
-        </a>
-        
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Smorgasburg+Williamsburg,+90+Kent+Ave,+Brooklyn,+NY+11211" class="rectangle rectangle-2" target="_blank">
+        </div>
+
+        <div class="rectangle rectangle-2">
             <p>SAT: WILLIAMSBURG <span style="font-size: 1.2vw;">(Marsha P. Johnson State Park, 90 Kent Ave, Brooklyn)</span></p>
-            <span class="arrow">></span>
-        </a>
-        
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Smorgasburg+Prospect+Park,+Prospect+Park,+Breeze+Hill,+Brooklyn,+NY+11225" class="rectangle rectangle-3" target="_blank">
+        </div>
+
+        <div class="rectangle rectangle-3">
             <p>SUN: PROSPECT PARK <span style="font-size: 1.2vw;">(Breeze Hill (enter at Lincoln Road), Brooklyn)</span></p>
-            <span class="arrow">></span>
-        </a>
+        </div>
+
     </div>
 
     <div class="year-circles">
@@ -48,104 +47,9 @@
         <div class="circle circle-2">0</div>
         <div class="circle circle-3">2</div>
         <div class="circle circle-4">5</div>
-    </div>
+      </div>
 
-    <script>
-        // Arrays of image paths with object positions
-        const rectangle1Images = [
-            { src: 'wtc/wtc1.jpg', position: '0% 70%' },
-            { src: 'wtc/wtc2.jpg', position: '0% 100%' },
-            { src: 'wtc/wtc4.jpg', position: '0% 35%' },
-        ];
-        
-        const rectangle2Images = [
-            { src: 'williamsburg/william2.jpg', position: '0% 25%' },
-            { src: 'williamsburg/william3.jpg', position: '0% 65%' },
-            { src: 'williamsburg/william5.jpg', position: '0% 70%' },
-        ];
-        
-        const rectangle3Images = [
-            { src: 'prospect/prospect1.jpg', position: '0% 80%' },
-            { src: 'prospect/prospect3.jpg', position: '0% 55%' },
-            { src: 'prospect/prospect5.jpg', position: '0% 65%' }
-        ];
-        
-        // Original image info
-        const originalImage = {
-            src: 'seating.jpg',
-            position: '0% 63%' // Your current object-position for seating image
-        };
-        
-        // Get the elements
-        const rectangle1 = document.querySelector('a.rectangle-1');
-        const rectangle2 = document.querySelector('a.rectangle-2');
-        const rectangle3 = document.querySelector('a.rectangle-3');
-        const imageElement = document.getElementById('cycling-image');
-        
-        // Variables for cycling
-        let cycleInterval;
-        let currentIndex = 0;
-        let currentImageSet = [];
-        
-        // Function to cycle through images
-        function cycleImages() {
-            currentIndex = (currentIndex + 1) % currentImageSet.length;
-            const currentImage = currentImageSet[currentIndex];
-            imageElement.src = currentImage.src;
-            imageElement.style.objectPosition = currentImage.position;
-        }
-        
-        // Function to start cycling with a specific image set
-        function startCycling(imageSet) {
-            // Clear any existing interval first
-            if (cycleInterval) {
-                clearInterval(cycleInterval);
-            }
-            // Set the current image set
-            currentImageSet = imageSet;
-            // Reset index
-            currentIndex = 0;
-            // Show first image immediately
-            const firstImage = currentImageSet[currentIndex];
-            imageElement.src = firstImage.src;
-            imageElement.style.objectPosition = firstImage.position;
-            // Start cycling every 500ms
-            cycleInterval = setInterval(cycleImages, 800);
-        }
-        
-        function stopCycling() {
-            // Clear the interval
-            clearInterval(cycleInterval);
-            cycleInterval = null;
-            // Reset to original image
-            imageElement.src = originalImage.src;
-            imageElement.style.objectPosition = originalImage.position;
-        }
-        
-        // Add event listeners when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add event listeners to rectangle-1
-            if (rectangle1) {
-                rectangle1.addEventListener('mouseenter', function() {
-                    startCycling(rectangle1Images);
-                });
-                rectangle1.addEventListener('mouseleave', stopCycling);
-            }
-            
-            // Add event listeners to rectangle-2
-            if (rectangle2) {
-                rectangle2.addEventListener('mouseenter', function() {
-                    startCycling(rectangle2Images);
-                });
-                rectangle2.addEventListener('mouseleave', stopCycling);
-            }
-            
-            // Add event listeners to rectangle-3
-            if (rectangle3) {
-                rectangle3.addEventListener('mouseenter', function() {
-                    startCycling(rectangle3Images);
-                });
-                rectangle3.addEventListener('mouseleave', stopCycling);
-            }
-        });
-    </script>
+
+      
+</body>
+</html>
