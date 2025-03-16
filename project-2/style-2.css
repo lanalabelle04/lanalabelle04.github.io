@@ -195,34 +195,33 @@ body, html {
     transition: all 0.3s ease;
 }
 
-/* Hover effects for rectangle-1 */
 .rectangle-1:hover {
-    background-color: #FFE058; /* Change to green on hover */
+    background-color: #FFE058; 
 }
 
 .rectangle-2:hover {
-    background-color: #DE4641; /* Change to green on hover, same as rectangle-1 */
+    background-color: #DE4641; 
 }
 
 .rectangle-2:hover p {
-    color: white; /* Change text color to white on hover */
+    color: white; 
 }
 
 .rectangle-3:hover {
-    background-color: #0074D9; /* Change to green on hover, same as other rectangles */
+    background-color: #0074D9;
 }
 
 .rectangle-3:hover p {
-    color: white; /* Change text color to white on hover */
+    color: white; 
 }
 
 .rectangle .arrow {
     position: absolute;
-    right: 35px; /* Adjust the position as needed */
-    font-size: 2vw; /* Adjust size accordingly */
+    right: 35px;
+    font-size: 2vw; 
     font-weight: 400;
-    color: white; /* Initial color */
-    transition: transform 0.2s ease; /* Transition for smooth rotation */
+    color: white; 
+    transition: transform 0.2s ease;
 }
 
 .rectangle:hover .arrow {
