@@ -1,89 +1,299 @@
-function updateBackgroundImage() {
-  let now = new Date();
-  let hour = now.getHours();
-  let minute = now.getMinutes();
-  let totalMinutes = hour * 60 + minute;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>appa's bday</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
 
-  let dawnRanges = [
-    [5 * 60 + 51, 6 * 60],
-    [19 * 60 + 50, 20 * 60 + 4]
-  ];
-  let nightRange1 = [20 * 60 + 5, 24 * 60];   
-  let nightRange2 = [0, 5 * 60 + 50];
-  let dayRange = [6 * 60 + 1, 19 * 60 + 49]; 
-  let backgroundUrl = "images/night.jpg"; 
+    .container {
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
 
-  if (
-    (totalMinutes >= nightRange1[0] && totalMinutes <= nightRange1[1]) ||
-    (totalMinutes >= nightRange2[0] && totalMinutes <= nightRange2[1])
-  ) {
-    backgroundUrl = "images/night.jpg";
-  } else if (
-    dawnRanges.some(([start, end]) => totalMinutes >= start && totalMinutes <= end)
-  ) {
-    backgroundUrl = "images/dawn.jpg";
-  } else if (totalMinutes >= dayRange[0] && totalMinutes <= dayRange[1]) {
-    backgroundUrl = "images/day.jpg";
-  }
+    .typing-text {
+      font-size: 24px;
+      min-height: 30px;
+      margin-bottom: 30px;
+    }
 
-  document.body.style.backgroundImage = `url('${backgroundUrl}')`;
+    .cursor {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    .quiz-container {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .question {
+      font-size: 20px;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .answer-btn {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-family: 'Courier New', monospace;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 300px;
+    }
+
+    .answer-btn:hover {
+      background-color: white;
+      color: black;
+    }
+
+    .correct {
+      color: green !important;
+      border-color: green !important;
+      background-color: transparent !important;
+    }
+
+    .incorrect {
+      color: red !important;
+      border-color: red !important;
+      background-color: transparent !important;
+    }
+
+    .success-message,
+    .failure-message,
+    .identity-confirmed {
+      font-size: 24px;
+      margin-top: 30px;
+      display: none;
+    }
+
+    .success-message {
+      color: green;
+    }
+
+    .failure-message {
+      color: red;
+    }
+
+    .identity-confirmed {
+      color: white;
+      font-size: 36px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .reveal-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      display: none;
+      z-index: 1000;
+    }
+    
+    .expanding-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 3s ease-out;
+  opacity: 1;
+  z-index: 1001;
 }
 
-async function getPokemonByTime() {
-  updateBackgroundImage(); 
-
-  let now = new Date();
-  let hour24 = now.getHours();
-  let minute = now.getMinutes();
-
-  let hour12 = hour24 % 12;
-  if (hour12 === 0) hour12 = 12;
-
-  let formattedHour = hour12.toString().padStart(2, '0');
-  let formattedMinute = minute.toString().padStart(2, '0');
-  let ampm = hour24 < 12 ? 'AM' : 'PM';
-
-  let timeString = `${formattedHour}:${formattedMinute} ${ampm}`;
-  let timeValue = (hour12 * 100) + minute;
-  let totalMinutes = hour24 * 60 + minute;
-
-  let blockedRanges = [
-    [10 * 60 + 11, 12 * 60 + 59],  
-    [22 * 60 + 11, 23 * 60 + 59],  
-    [0, 0 + 59]                   
-  ];
-
-  let isBlocked = blockedRanges.some(([start, end]) => totalMinutes >= start && totalMinutes <= end);
-
-  if (isBlocked) {
-    document.getElementById("pokemon").textContent = `${timeString}`;
-    document.getElementById("pokemon2").textContent = `There’s a time and place for everything! But not now.`;
-    document.getElementById("pokemon-image").src = "images/143.png";
-    document.getElementById("pokemon-image").style.display = "block";
-    return;
-  }
-
-  let pokemonId = timeValue;
-  if (pokemonId > 1008) {
-    pokemonId = pokemonId % 1008;
-    if (pokemonId === 0) pokemonId = 1;
-  }
-
-  try {
-    let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
-    let data = await response.json();
-    let name = data.name.charAt(0).toUpperCase() + data.name.slice(1);
-
-    document.getElementById("pokemon").innerHTML = `${timeString}`;
-    document.getElementById("pokemon-image").src = data.sprites.front_default;
-    document.getElementById("pokemon-image").style.display = "block";
-    document.getElementById("pokemon2").innerHTML = `#${pokemonId} ${name}`;
-  } catch (error) {
-    document.getElementById("pokemon").textContent = `Time: ${timeString} - pokemon not found.`;
-    document.getElementById("pokemon-image").style.display = "none";
-    console.error("Error fetching Pokemon:", error);
-  }
+.expanding-image.expand {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0; /* or keep 50% if you want a full-screen circle */
 }
 
-getPokemonByTime();
-setInterval(getPokemonByTime, 60000);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="typing-text" id="typingText"></div>
+    
+    <div class="quiz-container" id="quizContainer">
+      <div class="question" id="question"></div>
+      <div class="answers" id="answers"></div>
+      <div class="success-message" id="successMessage">access gain!</div>
+      <div class="failure-message" id="failureMessage">access denied.</div>
+      <div class="identity-confirmed" id="identityConfirmed">identity confirmed!</div>
+    </div>
+  </div>
+
+  <div class="reveal-container" id="revealContainer">
+    <img src="appa.png" alt="Appa" class="expanding-image" id="expandingImage">
+  </div>
+
+  <script>
+    const sentences = [
+      "hello there",
+      "this is super secret website",
+      "to gain access, we need to confirm your identity",
+      "to do this, you must answer a couple of questions..."
+    ];
+
+    const questions = [
+      {
+        question: "what is the correct answer?",
+        answers: ["heroic hyunsuk, lionhearted lana, jubilant joel", "hilarious hyunsuk, laughing lana, jolly joel", "hopping hyunsuk, leaping lana, jogger joel"],
+        correct: 2
+      },
+      {
+        question: "what pokemon resonates with you the most?",
+        answers: ["ditto", "meowth", "bulbasaur"],
+        correct: 1
+      },
+      {
+        question: "why are you the best dad?",
+        answers: ["you often use your daughter's tooth brush accidentally", "you fart and blame it on your daughter", "you have sometimes good dad jokes and always show up and support your family"],
+        correct: 2
+      }
+    ];
+
+    let currentSentence = 0;
+    let currentChar = 0;
+    let isDeleting = false;
+    let currentQuestion = 0;
+    let quizStarted = false;
+
+    const typingText = document.getElementById('typingText');
+    const quizContainer = document.getElementById('quizContainer');
+    const questionElement = document.getElementById('question');
+    const answersElement = document.getElementById('answers');
+    const successMessage = document.getElementById('successMessage');
+    const failureMessage = document.getElementById('failureMessage');
+    const identityConfirmed = document.getElementById('identityConfirmed');
+    const revealContainer = document.getElementById('revealContainer');
+    const expandingImage = document.getElementById('expandingImage');
+
+    function typeText() {
+      if (quizStarted) return;
+
+      const current = sentences[currentSentence];
+      
+      if (!isDeleting) {
+        typingText.innerHTML = current.substring(0, currentChar) + '<span class="cursor">|</span>';
+        currentChar++;
+        if (currentChar > current.length) {
+          isDeleting = true;
+          setTimeout(typeText, 2000);
+          return;
+        }
+      } else {
+        typingText.innerHTML = current.substring(0, currentChar) + '<span class="cursor">|</span>';
+        currentChar--;
+        if (currentChar < 0) {
+          isDeleting = false;
+          currentSentence++;
+          if (currentSentence >= sentences.length) {
+            typingText.innerHTML = '';
+            startQuiz();
+            return;
+          }
+        }
+      }
+      setTimeout(typeText, isDeleting ? 50 : 100);
+    }
+
+    function startQuiz() {
+      quizStarted = true;
+      quizContainer.style.display = 'block';
+      showQuestion();
+    }
+
+    function showQuestion() {
+      if (currentQuestion >= questions.length) {
+        questionElement.style.display = 'none';
+        answersElement.style.display = 'none';
+        successMessage.style.display = 'none';
+        identityConfirmed.style.display = 'block';
+        setTimeout(startReveal, 2000);
+        return;
+      }
+
+      const q = questions[currentQuestion];
+      questionElement.textContent = q.question;
+      answersElement.innerHTML = '';
+
+      q.answers.forEach((answer, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.textContent = answer;
+        btn.addEventListener('click', () => checkAnswer(index, btn));
+        answersElement.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selectedIndex, button) {
+      const correct = questions[currentQuestion].correct;
+      if (selectedIndex === correct) {
+        button.classList.add('correct');
+        setTimeout(() => {
+          currentQuestion++;
+          showQuestion();
+        }, 1500);
+      } else {
+        button.classList.add('incorrect');
+        setTimeout(() => {
+          questionElement.style.display = 'none';
+          answersElement.style.display = 'none';
+          failureMessage.style.display = 'block';
+        }, 1500);
+      }
+    }
+
+    function startReveal() {
+      document.querySelector('.container').style.display = 'none';
+      revealContainer.style.display = 'block';
+
+      // Trigger CSS animation only
+      setTimeout(() => {
+        expandingImage.classList.add('expand');
+      }, 500);
+    }
+
+    typeText();
+  </script>
+</body>
+</html>
+
