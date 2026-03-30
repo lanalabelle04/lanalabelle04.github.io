@@ -1,0 +1,121 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'AUTHENTIC Sans', sans-serif;
+  background: #fff;
+  color: #000;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+/* Landing Screen Container */
+.landing-screen {
+  display: flex;
+  width: 1407px;
+  height: 1024px;
+  position: relative;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 333px;
+  height: 100%;
+  background: linear-gradient(180deg, #92D4F7 0%, #FFFFFF 100%);
+  border-right: 1px solid rgba(0,0,0,0.2);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sidebar-header h1 {
+  font-size: 36px;
+  line-height: 43px;
+}
+
+.sidebar-header p {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.sidebar-careers .career-label {
+  font-size: 12px;
+  line-height: 14px;
+  opacity: 0.5;
+}
+
+.sidebar-careers h2 {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.sidebar-careers .career-description {
+  font-size: 16px;
+  line-height: 19px;
+  opacity: 0.5;
+}
+
+/* Timeline Main Content */
+.timeline {
+  width: 1074px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.timeline h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Schedule */
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Time Slots */
+.time-slot {
+  padding: 14px 18px 48px 14px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.time-slot .title {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.time-slot .description {
+  font-size: 16px;
+  line-height: 19px;
+  opacity: 0.7;
+}
+
+/* Colors */
+.time-slot.pink {
+  background: #F4A8F3;
+}
+
+.time-slot.green {
+  background: #BFE41B;
+}
+
+.time-slot.orange {
+  background: #F88E52;
+}
+
+.time-slot.blue {
+  background: #92D4F7;
+}
+
+.time-slot.yellow {
+  background: #FAE55D;
+}
