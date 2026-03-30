@@ -1,4 +1,4 @@
-const GEMINI_API_KEY = 'AIzaSyD9kC0kciWpiJGXNvwtB8V3KycQsbYI9tw';
+
 const colorPalette = ['#F4A8F3', '#BFE41B', '#F88E52', '#92D4F7', '#FAE55D'];
 let colorStartIndex = 0;
 
