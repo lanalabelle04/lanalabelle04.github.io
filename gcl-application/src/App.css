@@ -1,0 +1,298 @@
+/* Font Faces */
+@font-face {
+  font-family: 'Authentic Sans 60';
+  src: url('/fonts/authentic-sans-60.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Authentic Sans 90';
+  src: url('/fonts/authentic-sans-90.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Authentic Sans 130';
+  src: url('/fonts/authentic-sans-130.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Authentic Sans 150';
+  src: url('/fonts/authentic-sans-150.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Authentic Sans Condensed 60';
+  src: url('/fonts/authentic-sans-condensed-60.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Authentic Sans Condensed 90';
+  src: url('/fonts/authentic-sans-condensed-90.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Authentic Sans Condensed 130';
+  src: url('/fonts/authentic-sans-condensed-130.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Authentic Sans Condensed 150';
+  src: url('/fonts/authentic-sans-condensed-150.otf') format('opentype');
+}
+
+/* Global Styles */
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Authentic Sans 90', sans-serif;
+  background: #fff;
+  color: #000;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+/* Landing Screen Container */
+.landing-screen {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 333px;
+  height: 100%;
+  background: linear-gradient(180deg, #92D4F7 0%, #FFFFFF 100%);
+  border-right: 1px solid rgba(0,0,0,0.2);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-header h1 {
+  font-family: 'Authentic Sans Condensed 60', sans-serif;
+  font-size: 36px;
+  line-height: 1;
+}
+
+.sidebar-header p {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.sidebar-careers {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.sidebar-careers .career {
+  background: #63BAE8;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: inset 0 0 0 2px #CDEDFF;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-careers .career.career-inactive {
+  background: transparent;
+  box-shadow: none;
+}
+
+.sidebar-careers .career-label {
+  font-size: 12px;
+  line-height: 14px;
+  opacity: 0.5;
+}
+
+.sidebar-careers h2 {
+  font-family: 'Authentic Sans 90', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.sidebar-careers .career-description {
+  font-size: 16px;
+  line-height: 19px;
+  opacity: 0.5;
+}
+
+/* Timeline Main Content */
+.timeline {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.timeline-top-bar {
+  width: 100%;
+  height: 30px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-bottom-bar {
+  width: 100%;
+  height: 78px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.schedule-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 30px 30px 30px;
+  box-sizing: border-box;
+}
+
+/* Schedule */
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.time-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.time-label {
+  font-family: 'Authentic Sans 90', sans-serif;
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* Time Slots */
+.time-slot {
+  padding: 14px 18px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.time-slot .title {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.time-slot .description {
+  font-size: 16px;
+  line-height: 19px;
+  opacity: 0.5;
+}
+
+/* Colors */
+.time-slot.pink {
+  background: #F4A8F3;
+}
+
+.time-slot.green {
+  background: #BFE41B;
+}
+
+.time-slot.orange {
+  background: #F88E52;
+}
+
+.time-slot.blue {
+  background: #92D4F7;
+}
+
+.time-slot.yellow {
+  background: #FAE55D;
+}
+
+/* Career Input Bar */
+.career-input-bar {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  width: calc(100% - 36px);
+  height: 60px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  background: #CDEDFF;
+  box-shadow: inset 0 0 0 2px #63BAE8;
+  border-radius: 10px;
+}
+
+.career-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Authentic Sans 90', sans-serif;
+  font-size: 16px;
+  background: transparent;
+  color: #000;
+}
+
+.career-input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.career-input:focus::placeholder {
+  color: transparent;
+}
+
+.upload-btn {
+  height: 30px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Confetti */
+.confetti-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti-particle {
+  position: absolute;
+  bottom: -60px;
+  line-height: 1;
+  animation: confetti-rise linear forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes confetti-rise {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-105vh) translateX(var(--drift)) rotate(var(--rotation));
+    opacity: 0;
+  }
+}
