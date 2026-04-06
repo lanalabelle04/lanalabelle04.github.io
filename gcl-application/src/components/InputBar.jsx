@@ -27,7 +27,7 @@ export default function InputBar({ onSubmit }) {
         onKeyDown={handleKeyDown}
       />
       <img
-        src="/images/uploadbutton.png"
+        src={`${import.meta.env.BASE_URL}images/uploadbutton.png`}
         alt="Upload"
         className="upload-btn"
         onClick={handleSubmit}
